@@ -26,12 +26,11 @@ def run():
     status = []
     
     for site in sites:
-        status.append(f"Site: {site['nome']} - {site['url']} = Status: {test_site(site['url'])}")
+        status.append({"nome": site['nome'],"url":site['url'],"status":test_site(site['url'])})
         
     return status
 
 def main():
-    """ Main program """
     run()
     return 0
 

@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for s in status %}
-    <p>{{ s }}</p>
-    {% endfor %}
+    <table>
+        <tr>
+        <th>Site</th>
+        <th>URL</th>
+        <th>Status code</th>
+        </tr>
+        {% for s in status %}
+            <tr>
+                <td>{{ s.nome }}</td>
+                <td>{{ s.url }}</td>
+                <td>{{ s.status }}</td>
+            </tr>
+        {% endfor %}
+    </table>
     <p> Last check: {{ timestamp }}</p>
 {% endblock %}
