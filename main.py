@@ -5,13 +5,13 @@
 from pprint import pprint
 import requests
 from urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 def test_site(url):
     r = requests.get(url, verify=False)
     return r.status_code
 
 def run():
-    requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
     sites = [
         {"nome": "cliente-havan", "url": "https://cliente.havan.com.br/"},
         {"nome": "lista-havan", "url": "https://lista.havan.com.br/"},
@@ -23,8 +23,12 @@ def run():
         {"nome": "cobranca-externa-api", "url": "https://cobrancaexternaapi.apps.havan.com.br/health"}
     ]
     
+    status = []
+    
     for site in sites:
-        print(f"Site: {site['nome']} - {site['url']} = Status: {test_site(site['url'])}")
+        status.append(f"Site: {site['nome']} - {site['url']} = Status: {test_site(site['url'])}")
+        
+    return status
 
 def main():
     """ Main program """
