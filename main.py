@@ -23,9 +23,7 @@ def run():
         {"nome": "ficha-oferta", "url": "https://fichaoferta.apps.havan.com.br/health"},
         {"nome": "meuspedidos", "url": "https://meuspedidos.apps.havan.com.br/"},
         {"nome": "pixhavan", "url": "https://pixhavanapi.apps.havan.com.br/health"},
-        {"nome": "cobranca-externa-api", "url": "https://cobrancaexternaapi.apps.havan.com.br/health"},
-        {"nome": "test-page-error","url":"https://clientesolicitacaocreditoteste.havan.com.br/health"},
-        {"nome": "test-page-404", "url":"https://clientesolicitacaocreditoteste.dev.havan.com.br/"}
+        {"nome": "cobranca-externa-api", "url": "https://cobrancaexternaapi.apps.havan.com.br/health"}
     ]
     
     status = []
