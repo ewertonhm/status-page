@@ -8,7 +8,10 @@ from urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 def test_site(url):
-    r = requests.get(url, verify=False)
+    try:
+        r = requests.get(url, verify=False)
+    except Exception:
+        return 'error'
     return r.status_code
 
 def run():
@@ -20,7 +23,9 @@ def run():
         {"nome": "ficha-oferta", "url": "https://fichaoferta.apps.havan.com.br/health"},
         {"nome": "meuspedidos", "url": "https://meuspedidos.apps.havan.com.br/"},
         {"nome": "pixhavan", "url": "https://pixhavanapi.apps.havan.com.br/health"},
-        {"nome": "cobranca-externa-api", "url": "https://cobrancaexternaapi.apps.havan.com.br/health"}
+        {"nome": "cobranca-externa-api", "url": "https://cobrancaexternaapi.apps.havan.com.br/health"},
+        {"nome": "test-page-error","url":"https://clientesolicitacaocreditoteste.havan.com.br/health"},
+        {"nome": "test-page-404", "url":"https://clientesolicitacaocreditoteste.dev.havan.com.br/"}
     ]
     
     status = []
